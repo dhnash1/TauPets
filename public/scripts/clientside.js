@@ -1,41 +1,41 @@
-console.log("clientside loaded");//assure that javascript hasnt spontaniously combusted
+console.log("clientside loaded"); //assure that javascript hasnt spontaniously combusted
 
-var petApp = angular.module('petApp', []);//Creates a new module and assigns it to petApp
+var petApp = angular.module('petApp', []); //Creates a new module and assigns it to petApp
 
-petApp.controller('control', ['$scope' , '$http', function($scope, $http){//sets up the controller from the HTML
-  console.log("angular loaded");//chech that Angular isnt being lazy
+petApp.controller('control', ['$scope', '$http', function($scope, $http) { //sets up the controller from the HTML
+    console.log("angular loaded"); //chech that Angular isnt being lazy
 
-  $scope.submit = function(){//function expression "submit()"
+    $scope.submit = function() { //function expression "submit()"
 
-    $http({
-      method: "POST",
-      url:"/route",
-      data:{
-        name: $scope.name,
-        species: $scope.species,
-        age: $scope.age,
-        image: $scope.img
-      }// put together an object to send
-    }).then(function(res){
-      console.log(res.data);
-    });//end then
+        $http({
+            method: "POST",
+            url: "/route",
+            data: {
+                name: $scope.name,
+                species: $scope.species,
+                age: $scope.age,
+                image: $scope.img
+            } // put together an object to send
+        }).then(function(res) {
+            console.log(res.data);
+        }); //end then
         $scope.name = "";
         $scope.species = "";
         $scope.age = "";
         $scope.img = "";
-        $scope.get();//clears the inputs
-  };//end expression submit()
+        $scope.get(); //clears the inputs
+    }; //end expression submit()
 
-  $scope.get = function(){
-    console.log("getting...");
+    $scope.get = function() {
+        console.log("getting...");
 
-    $http({
-      method: "GET",
-      url:"/route"
-    }).then(function(res){
-      console.log(res.data);
-      $scope.recieved = res.data;
-    });//Gets the info from the DB and puts it on the page
-  };
-$scope.get();
-}]);//end controller
+        $http({
+            method: "GET",
+            url: "/route"
+        }).then(function(res) {
+            console.log(res.data);
+            $scope.recieved = res.data;
+        }); //Gets the info from the DB and puts it on the page
+    };
+    $scope.get();
+}]); //end controller
