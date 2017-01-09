@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript" src="vendors/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/clientside.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8">
+    <title>Hoo boy</title>
+  </head>
+  <body ng-app="petApp">
+    <h1>Tau class pets!</h1>
+    <div ng-controller="control">
+      <div class="">
+        <p>Please use the boxes provided to input your pets' info!</p>
+      </div>
+      <div class="inputs">
+
+
+      <input type="text" ng-model="name" placeholder="Name">
+      <input type="text" ng-model="species" placeholder="Species">
+      <input type="number" ng-model="age" placeholder="Age">
+      <input type="text" ng-model="img" placeholder="Image">
+      <button type="button" ng-click="submit()">Submit</button>
+</div>
+      <div ng-repeat="pets in recieved" class="results">
+<div class="res4"><img src="{{pets.image}}"></div>
+<div class="res1"> {{pets.name}} the {{pets.species}} </div>
+<div class="res2"> Age {{pets.age}} </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
