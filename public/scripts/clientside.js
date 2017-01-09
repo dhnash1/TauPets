@@ -23,7 +23,7 @@ petApp.controller('control', ['$scope' , '$http', function($scope, $http){//sets
         $scope.species = "";
         $scope.age = "";
         $scope.img = "";
-        $scope.get();
+        $scope.get();//clears the inputs
   };//end expression submit()
 
   $scope.get = function(){
@@ -35,7 +35,7 @@ petApp.controller('control', ['$scope' , '$http', function($scope, $http){//sets
     }).then(function(res){
       console.log(res.data);
       $scope.recieved = res.data;
-    });
+    });//Gets the info from the DB and puts it on the page
   };
 $scope.get();
 }]);//end controller

@@ -6,6 +6,6 @@ var petMaker = new Schema({
   species : {type: String, required : true},
   age : Number,
   image : {type: String}
-});
+});//makes a schema to make new objects
 var petCreate = mongoose.model('assembler', petMaker);
 module.exports = petCreate;
