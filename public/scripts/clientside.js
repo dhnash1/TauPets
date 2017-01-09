@@ -1,12 +1,8 @@
 console.log("clientside loaded"); //assure that javascript hasnt spontaniously combusted
-
 var petApp = angular.module('petApp', []); //Creates a new module and assigns it to petApp
-
 petApp.controller('control', ['$scope', '$http', function($scope, $http) { //sets up the controller from the HTML
     console.log("angular loaded"); //chech that Angular isnt being lazy
-
     $scope.submit = function() { //function expression "submit()"
-
         $http({
             method: "POST",
             url: "/route",
@@ -25,10 +21,8 @@ petApp.controller('control', ['$scope', '$http', function($scope, $http) { //set
         $scope.img = "";
         $scope.get(); //clears the inputs
     }; //end expression submit()
-
     $scope.get = function() {
         console.log("getting...");
-
         $http({
             method: "GET",
             url: "/route"
